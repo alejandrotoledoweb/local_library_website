@@ -1,5 +1,6 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+
+var Schema = mongoose.Schema;
 
 var AuthorSchema = new Schema(
   {
@@ -8,32 +9,34 @@ var AuthorSchema = new Schema(
     date_of_birth: {type: Date},
     date_of_death: {type: Date},
   }
-
 );
 
 // Virtual for author's full name
-AuthorSchema.virtual('name')
-.get(function() {
+AuthorSchema
+.virtual('name')
+.get(function () {
   return this.family_name + ', ' + this.first_name;
-})
+});
 
 // Virtual for author's lifespan
 AuthorSchema.virtual('lifespan').get(function() {
   var lifetime_string = '';
   if (this.date_of_birth) {
-    lifetime_string = DateTime.fromJSDate(this.date_of_birth).toLocalString(DateTime.DATE_MED);
+    lifetime_string = DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED);
   }
-  lifetime_string = lifetime_string += ' - ';
+  lifetime_string += ' - ';
   if (this.date_of_death) {
-    lifetime_string = DateTime.fromJSDate(this.date_of_death).toLocalString(DateTime.DATE_MED)
+    lifetime_string += DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
   }
   return lifetime_string;
-})
+});
 
 // Virtual for author's URL
-AuthorSchema.virtual('url').get(function() {
-  return '/catalog/author' + this._id;
-})
+AuthorSchema
+.virtual('url')
+.get(function () {
+  return '/catalog/author/' + this._id;
+});
 
-// Export model 
-module.export = mongoose.model('Author', AuthorSchema);
+//Export model
+module.exports = mongoose.model('Author', AuthorSchema);
