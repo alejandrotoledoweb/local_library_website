@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://m001-student:m001-mongodb-basics@Sandbox.j0ci8.mongodb.net/local_library?retryWrites=true&w=majority'
+var mongoDB = 'mongodb+srv://m001-student:m001-mongodb-basics@Sandbox.j0ci8.mongodb.net/local_library_Collection0?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection Error'));
