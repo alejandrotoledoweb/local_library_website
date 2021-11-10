@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require("dotenv").config();
+var pass = process.env.PASSWORD;
 
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://m001-student:PASSWORD@Sandbox.j0ci8.mongodb.net/local_library?retryWrites=true&w=majority'
+var mongoDB = `mongodb+srv://m001-student:${pass}@Sandbox.j0ci8.mongodb.net/local_library?retryWrites=true&w=majority`
+
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection Error'));
