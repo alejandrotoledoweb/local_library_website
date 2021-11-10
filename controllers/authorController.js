@@ -1,7 +1,7 @@
 var Author = require('../models/author');
 
 // Display list of all Authors
-exports.author_list = function(req, res, next) {
+exports.author_list = function(req, res) {
   res.send('NOT IMPLEMENTED: Author List');
 };
 
@@ -39,3 +39,6 @@ exports.author_update_get = function(req, res) {
 exports.author_update_post = function(req, res) {
   res.send('NOT IMPLEMENTED: Author update POST');
 }
+
+
+//express middleware functions above
