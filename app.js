@@ -7,7 +7,6 @@ require("dotenv").config();
 var pass = process.env.PASSWORD;
 
 var mongoose = require('mongoose');
-
 var mongoDB = `mongodb+srv://m001-student:${pass}@Sandbox.j0ci8.mongodb.net/local_library?retryWrites=true&w=majority`
 
 mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
@@ -36,7 +35,7 @@ app.use('/users', usersRouter);
 app.use('/users/cool', usersRouter);
 app.use('/catalog', catalogRouter);
 
-// catch 404 and forward to error handler
+// catch 404 error and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
