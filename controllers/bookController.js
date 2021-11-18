@@ -7,6 +7,7 @@ var async = require('async');
 
 exports.index = function(req, res) {
 
+    // using the async.parallel
     async.parallel({
         book_count: function(callback) {
             Book.countDocuments({}, callback); // Pass an empty object as match condition to find all documents of this collection
@@ -27,7 +28,6 @@ exports.index = function(req, res) {
         res.render('index', { title: 'Local Library Home', error: err, data: results });
     });
 };
-
 
 
 // Display list of all books.
