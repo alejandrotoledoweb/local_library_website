@@ -20,17 +20,17 @@ To get a local copy up and follow these simple example steps.
 
 - Please make a local copy of this repo by typing this command on your terminal.
 
-`git clone git@github.com:alejandrotoledoweb/devices-clientapp.git`
+`git clone https://github.com/alejandrotoledoweb/local_library_website.git`
 
 - Then, go to the folder created with:
 
-`cd devices-clientapp`
+`cd local_library_website`
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm install` & `npm run serverstart' (if you are using MacOS or Linux)
 
 Before running this command be sure to run `npm i` to install all dependencies.
 
