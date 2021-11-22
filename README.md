@@ -30,7 +30,7 @@ To get a local copy up and follow these simple example steps.
 
 In the project directory, you can run:
 
-### `npm install` & `npm run serverstart' (if you are using MacOS or Linux)
+### `npm install` & `npm run serverstart` (if you are using MacOS or Linux)
 
 Before running this command be sure to run `npm i` to install all dependencies.
 
