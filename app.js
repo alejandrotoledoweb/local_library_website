@@ -3,9 +3,20 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+require("dotenv").config();
+var pass = process.env.PASSWORD;
+
+var mongoose = require('mongoose');
+var mongoDB = `mongodb+srv://m001-student:${pass}@Sandbox.j0ci8.mongodb.net/local_library?retryWrites=true&w=majority`
+
+mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection Error'));
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
@@ -21,8 +32,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/users/cool', usersRouter);
+app.use('/catalog', catalogRouter);
 
-// catch 404 and forward to error handler
+// catch 404 error and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
@@ -37,5 +50,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// app.use('/', indexRouter)
 
 module.exports = app;
