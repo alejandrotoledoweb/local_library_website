@@ -5,12 +5,11 @@ block content
 
   form(method='POST' action='')
     div.form-group
-      label(form='name') Genre: 
-      input#name.form_control(type='text', placeholder='Fantasy, Poetry, etc', name='name' value=(undefined===genre? '' : genre.name) )
+      label(form='name') Genre:  
+      input#name.form-control(type='text', placeholder='Fantasy, Poetry etc.' name='name' value=(undefined===genre ? '' : genre.name), required='true' )
     button.btn.btn-primary(type='submit') Submit
 
     if errors
       ul
         for error in errors
-        li!= error.mgs
-      
+          li!=error.msg
