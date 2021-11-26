@@ -14,6 +14,7 @@ exports.genre_list = function(req, res) {
     })
 };
 
+
 // Display detail page for a specific Genre.
 exports.genre_detail = function(req, res, next) {
 
